@@ -1,12 +1,5 @@
-export const deleted = (req, res) => {
-  const { id } = req.body;
-  const findUserId = users.findIndex((user) => user.id === id);
-
-  if (findUserId === -1) {
-    return res.status(404).json("Couldn't delete");
-  }
-
-  users.splice(findUserId, 1);
-
+import { authModel } from "../../../model/auth-model.js";
+export const deleted = async (req, res) => {
+  await authModel.findByIdAndDelete(req.body.id);
   res.status(200).json("Succesfully deleted");
 };

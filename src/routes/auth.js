@@ -17,23 +17,7 @@ import { deleted } from "./resolver/auth/delete.js";
 
 export const router = express.Router();
 
-const users = [
-  {
-    id: 1,
-    username: "John",
-    phone: "99009900",
-  },
-  {
-    id: 2,
-    username: "Bob",
-    phone: "99112233",
-  },
-];
-
 router.get(`/`, get);
-
 router.post(`/`, post);
-
 router.put(`/`, put);
-
 router.delete(`/`, deleted);
