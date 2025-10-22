@@ -1,4 +1,4 @@
-import { authModel } from "../../../model/auth-model.js";
+import { authModel } from "../../model/auth-model.js";
 
 export const post = async (req, res) => {
   const creating = req.body;

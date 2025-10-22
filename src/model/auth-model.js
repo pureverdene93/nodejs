@@ -10,8 +10,8 @@ const AuthSchema = new Schema({
   image: String,
   ingredients: String,
   category: Objectid,
-  createdAt: Date,
+  createdAt: { type: Date, default: Date.now },
   updatedAt: Date,
 });
 
-export const authModel = mongoose.model("auth", AuthSchema);
+export const authModel = mongoose.model("food", AuthSchema);

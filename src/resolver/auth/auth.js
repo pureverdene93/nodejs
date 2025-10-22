@@ -1,8 +1,8 @@
 import express from "express";
-import { get } from "./resolver/auth/get.js";
-import { post } from "./resolver/auth/post.js";
-import { put } from "./resolver/auth/put.js";
-import { deleted } from "./resolver/auth/delete.js";
+import { put } from "./put.js";
+import { deleted } from "./delete.js";
+import { post } from "./post.js";
+import { get } from "./get.js";
 
 // app.put(`/users/:id`, (req, res) => {
 //   const userId = parseInt(req.params.id);
@@ -16,7 +16,6 @@ import { deleted } from "./resolver/auth/delete.js";
 // });
 
 export const router = express.Router();
-
 router.get(`/`, get);
 router.post(`/`, post);
 router.put(`/`, put);

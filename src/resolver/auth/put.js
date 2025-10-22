@@ -1,4 +1,5 @@
-import { authModel } from "../../../model/auth-model.js";
+import { authModel } from "../../model/auth-model.js";
+
 export const put = async (req, res) => {
   const creating = req.body;
   await authModel.findByIdAndUpdate(
