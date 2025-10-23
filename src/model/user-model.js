@@ -10,11 +10,16 @@ const UserSchema = new Schema({
   phoneNumber: String,
   adress: String,
   role: { type: String, enum: ["admin", "user"], default: "user" },
-  orderedFoods: String,
-  ttl: Date,
+  orderedFoods: [
+    {
+      type: ObjectId,
+      ref: "foodOrder",
+    },
+  ],
+  ttl: { type: Date, default: Date.now },
   isVerified: Boolean,
   createdAt: { type: Date, default: Date.now },
-  updatedAt: Date,
+  updatedAt: { type: Date, default: Date.now },
 });
 
-export const userModel = mongoose.model("user", UserSchema);
+export const userModel = mongoose.model(`user`, UserSchema);

@@ -5,16 +5,16 @@ const ObjectId = Schema.ObjectId;
 
 const foodOrderSchema = new Schema({
   id: ObjectId,
-  user: ObjectId,
+  user: { type: Schema.ObjectId, ref: `user` },
   totalPrice: Number,
-  foodOrderItems: {
+  foodOrderItem: [{ type: ObjectId, ref: `food` }],
+  status: {
     type: String,
     enum: ["pending", "canceled", "delivered"],
     default: "pending",
   },
-  status: String,
   createdAt: { type: Date, default: Date.now },
-  updatedAt: Date,
+  updatedAt: { type: Date, default: Date.now },
 });
 
 export const foodOrderModel = mongoose.model("foodOrder", foodOrderSchema);

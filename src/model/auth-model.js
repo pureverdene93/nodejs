@@ -9,9 +9,12 @@ const AuthSchema = new Schema({
   price: Number,
   image: String,
   ingredients: String,
-  category: Objectid,
+  category: {
+    type: Objectid,
+    ref: `foodCategory`,
+  },
   createdAt: { type: Date, default: Date.now },
-  updatedAt: Date,
+  updatedAt: { type: Date, default: Date.now },
 });
 
-export const authModel = mongoose.model("food", AuthSchema);
+export const authModel = mongoose.model(`food`, AuthSchema);
