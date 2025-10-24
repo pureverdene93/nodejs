@@ -3,6 +3,8 @@ import { put } from "./put.js";
 import { deleted } from "./delete.js";
 import { post } from "./post.js";
 import { get } from "./get.js";
+import { foodPatch } from "./food-patch.js";
+import { getFoodById } from "./getFoodById.js";
 
 // app.put(`/users/:id`, (req, res) => {
 //   const userId = parseInt(req.params.id);
@@ -19,4 +21,6 @@ export const router = express.Router();
 router.get(`/`, get);
 router.post(`/`, post);
 router.put(`/`, put);
-router.delete(`/`, deleted);
+router.delete(`/:id`, deleted);
+router.patch(`/:id`, foodPatch);
+router.get(`/:id`, getFoodById);

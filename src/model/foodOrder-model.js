@@ -5,9 +5,9 @@ const ObjectId = Schema.ObjectId;
 
 const foodOrderSchema = new Schema({
   id: ObjectId,
-  user: { type: Schema.ObjectId, ref: `user` },
+  user: { type: ObjectId, ref: `user` },
   totalPrice: Number,
-  foodOrderItem: [{ type: ObjectId, ref: `food` }],
+  foodOrderItem: [{ food: { type: ObjectId, ref: `food` }, quantity: Number }],
   status: {
     type: String,
     enum: ["pending", "canceled", "delivered"],
