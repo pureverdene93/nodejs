@@ -2,7 +2,7 @@ import { foodOrderModel } from "../../model/foodOrder-model.js";
 
 export const updateFoodOrder = async (req, res) => {
   const creating = req.body;
-  await foodOrderModel.findByIdAndUpdate(creating.id, {
+  await foodOrderModel.findByIdAndUpdate(req.params.id, {
     $set: {
       user: creating.user,
       totalPrice: creating.totalPrice,

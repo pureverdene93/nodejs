@@ -7,5 +7,5 @@ import { deleteCategory } from "./delete-category.js";
 export const categoryRouter = express.Router();
 categoryRouter.get(`/`, getCategory);
 categoryRouter.post(`/`, createCategory);
-categoryRouter.put(`/`, updateCategory);
-categoryRouter.delete(`/`, deleteCategory);
+categoryRouter.put(`/:id`, updateCategory);
+categoryRouter.delete(`/:id`, deleteCategory);
