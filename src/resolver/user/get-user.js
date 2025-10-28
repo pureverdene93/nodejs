@@ -7,6 +7,7 @@ export const getUser = async (req, res) => {
       path: "foodOrderItem.food",
     },
   });
+
   console.log(userDB);
   res.json(userDB, "succesfully");
 };

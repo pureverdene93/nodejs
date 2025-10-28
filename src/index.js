@@ -1,9 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
-import { router } from "./resolver/auth/auth.js";
 import { categoryRouter } from "./resolver/foodCategory/category.js";
 import { userRoute } from "./resolver/user/user.js";
 import { foodOrderRoute } from "./resolver/foodOrder/foodOrder.js";
+import { router } from "./resolver/food/food.js";
 
 const app = express();
 const PORT = 8000;

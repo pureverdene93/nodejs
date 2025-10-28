@@ -1,6 +1,16 @@
 import { foodCategoryModel } from "../../model/FoodCategoryModel.js";
+import jwt from "jsonwebtoken";
 
 export const deleteCategory = async (req, res) => {
-  await foodCategoryModel.findByIdAndDelete(req.params.id);
-  res.status(200).json("Succesfully deleted");
+  const token = req.headers.authorization;
+  try {
+    const checkToken = jwt.verify(token, `key-test`);
+    if (checkToken.role === "admin") {
+      await foodCategoryModel.findByIdAndDelete(req.params.id);
+      res.status(200).json("Succesfully deleted");
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(401).json("failed");
+  }
 };
