@@ -4,10 +4,12 @@ import { categoryRouter } from "./resolver/foodCategory/category.js";
 import { userRoute } from "./resolver/user/user.js";
 import { foodOrderRoute } from "./resolver/foodOrder/foodOrder.js";
 import { router } from "./resolver/food/food.js";
+import cors from "cors";
 
 const app = express();
 const PORT = 8000;
 app.use(express.json());
+app.use(cors());
 
 app.use(`/food`, router);
 app.use(`/category`, categoryRouter);
