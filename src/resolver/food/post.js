@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 export const post = async (req, res) => {
   const creating = req.body;
-  const token = req.headers.authorization;
+  const token = req.headers.authorization?.split(" ")[1];
   try {
     const checkToken = jwt.verify(token, `key-test`);
     if (checkToken.role === "admin") {
@@ -20,6 +20,6 @@ export const post = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
-    res.status(401).json("failed");
+    res.status(500).json("failed to add");
   }
 };

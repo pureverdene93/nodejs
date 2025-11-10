@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 export const foodPatch = async (req, res) => {
   const creating = req.body;
-  const token = req.headers.authorization;
+  const token = req.headers.authorization?.split(" ")[1];
 
   try {
     const checkToken = jwt.verify(token, `key-test`);
