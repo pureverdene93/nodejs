@@ -5,6 +5,7 @@ import { post } from "./post.js";
 import { get } from "./get.js";
 import { foodPatch } from "./food-patch.js";
 import { getFoodById } from "./getFoodById.js";
+import { getFoodByFoodId } from "./getFoodByFoodId.js";
 
 // app.put(`/users/:id`, (req, res) => {
 //   const userId = parseInt(req.params.id);
@@ -23,4 +24,5 @@ router.post(`/`, post);
 router.put(`/`, put);
 router.delete(`/:id`, deleted);
 router.patch(`/:id`, foodPatch);
-router.get(`/:id`, getFoodById);
+router.get(`/category-id/:id`, getFoodById);
+router.get(`/:foodId`, getFoodByFoodId);
