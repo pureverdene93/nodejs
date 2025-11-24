@@ -4,7 +4,7 @@ export const updateUser = async (req, res) => {
   try {
     const create = req.body;
     await userModel.findByIdAndUpdate(
-      create.id,
+      req.params.id,
       {
         $set: {
           email: create.email,

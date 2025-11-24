@@ -9,6 +9,6 @@ export const userRoute = express.Router();
 
 userRoute.get(`/`, getUser);
 userRoute.post(`/signUp`, createUser);
-userRoute.put(`/`, updateUser);
+userRoute.put(`/:id`, updateUser);
 userRoute.delete(`/:id`, deleteUser);
 userRoute.post(`/signIn`, login);
