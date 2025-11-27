@@ -10,8 +10,8 @@ const foodOrderSchema = new Schema({
   foodOrderItem: [{ food: { type: ObjectId, ref: `food` }, quantity: Number }],
   status: {
     type: String,
-    enum: ["pending", "canceled", "delivered"],
-    default: "pending",
+    enum: ["Pending", "Cancelled", "Delivered"],
+    default: "Pending",
   },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },

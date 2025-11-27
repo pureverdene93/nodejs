@@ -3,22 +3,27 @@ import jwt from "jsonwebtoken";
 
 export const updateFoodOrder = async (req, res) => {
   const creating = req.body;
-  const token = req.headers.authorization;
+  console.log(creating, "req.body");
+
+  console.log(req.params.id, "asdasd");
+
+  // const token = req.headers.authorization?.split(" ")[1];
   try {
-    const checkToken = jwt.verify(token, `key-test`);
-    if (checkToken.id === req.params.id) {
-      await foodOrderModel.findByIdAndUpdate(req.params.id, {
+    await foodOrderModel.findByIdAndUpdate(
+      req.params.id,
+      {
         $set: {
           user: creating.user,
           totalPrice: creating.totalPrice,
           foodOrderItem: creating.foodOrderItem,
           status: creating.status,
         },
-      });
-      res.json("succesfully updated");
-    }
+      },
+      { new: true }
+    );
+    res.json("succesfully updated");
   } catch (err) {
     console.log(err);
-    res.status(404).json("failed");
+    res.status(500).json("failed");
   }
 };
