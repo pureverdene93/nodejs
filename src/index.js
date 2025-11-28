@@ -5,6 +5,7 @@ import { userRoute } from "./resolver/user/user.js";
 import { foodOrderRoute } from "./resolver/foodOrder/foodOrder.js";
 import { router } from "./resolver/food/food.js";
 import cors from "cors";
+const database_url = process.env.DATABASE_URL;
 
 const app = express();
 const PORT = 8000;
@@ -17,9 +18,7 @@ app.use(`/user`, userRoute);
 app.use(`/order`, foodOrderRoute);
 
 mongoose
-  .connect(
-    `mongodb+srv://pureverdene:purevee12@fooddeliveryweb.zdxevbf.mongodb.net/`
-  )
+  .connect(`${database_url}`)
   .then(() => console.log("Succesfuly connected"));
 app.listen(PORT, () => {
   console.log(`Server is running this port http://localhost:${PORT}`);
