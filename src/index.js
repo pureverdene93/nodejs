@@ -5,6 +5,8 @@ import { userRoute } from "./resolver/user/user.js";
 import { foodOrderRoute } from "./resolver/foodOrder/foodOrder.js";
 import { router } from "./resolver/food/food.js";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 const database_url = process.env.DATABASE_URL;
 if (!database_url) {
